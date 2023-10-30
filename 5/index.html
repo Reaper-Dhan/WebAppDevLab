@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Location Validation</title>
+</head>
+<body>
+    <form onsubmit="validateForm(event)">
+        <label for="country">Select Country:</label>
+        <select id="country" name="country">
+            <option value="" default></option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            var selectedCountry = document.getElementById("country").value;
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                var geoCountry = getCountryFromCoords(latitude, longitude);
+                if (geoCountry === selectedCountry) {
+                    alert("Success");
+                } else {
+                    alert("Geo Location does not match");
+                }
+            });
+        }
+        function getCountryFromCoords(latitude, longitude) {
+            return "India";
+        }
+    </script>
+</body>
+</html>

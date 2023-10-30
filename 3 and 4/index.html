@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Login</title>
+    <script>
+        function openSecureWindow() {
+            window.open("loggedin.html","something","width=500,height=600");
+        }
+    </script>
+    <script type="text/javascript">
+        function preventCopyPasteRightClick(event) {
+            if (event.type === "copy" || event.type === "paste") {
+                alert("Copying and Pasting is not allowed in this form.");
+                event.preventDefault();
+            }
+            if (event.type === "contextmenu" ) {
+              alert("Right click is not allowed in this form.");
+              event.preventDefault();
+          }
+        }
+        document.addEventListener("copy", preventCopyPasteRightClick);
+        document.addEventListener("paste", preventCopyPasteRightClick);
+        document.addEventListener("contextmenu", preventCopyPasteRightClick);
+    </script>
+</head>
+<body>
+    <h1>Bank Login</h1>
+    <div>
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname" required autocomplete="off"><br><br>
+        <label for="mpass">Password:</label>
+        <input type="password" id="mpass" name="mpass" required autocomplete="off"><br><br>
+    </div>
+    <button onclick="openSecureWindow()">Login</button>
+</body>
+</html>

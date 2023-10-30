@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+
+    <label for="studentSelect">Select a Student:</label>
+    <select id="studentSelect"></select>
+
+    <div id="studentDetails"></div>
+
+    <script>
+        const loadStudents = async () => {
+            const response = await fetch('students.xml');
+            const xmlDoc = await response.text();
+
+            const parser = new DOMParser();
+            const xmlData = parser.parseFromString(xmlDoc, 'application/xml');
+            const students = xmlData.querySelectorAll('student');
+            const select = document.getElementById('studentSelect');
+
+            students.forEach(student => {
+                const name = student.querySelector('name').textContent;
+                const option = new Option(name, name);
+                select.add(option);
+            });
+        };
+
+        const getStudentDetails = async () => {
+            const selectedStudent = document.getElementById('studentSelect').value;
+            const detailsDiv = document.getElementById('studentDetails');
+            detailsDiv.innerHTML = '';
+
+            if (selectedStudent) {
+                const response = await fetch('students.xml');
+                const xmlDoc = await response.text();
+
+                const parser = new DOMParser();
+                const xmlData = parser.parseFromString(xmlDoc, 'application/xml');
+                const students = xmlData.querySelectorAll('student');
+
+                students.forEach(student => {
+                    const name = student.querySelector('name').textContent;
+                    if (name === selectedStudent) {
+                        const subjects = student.querySelectorAll('subject');
+                        const detailsHTML = `<h2>Details for ${name}</h2><ul>${
+                            [...subjects].map(subject => {
+                                const subjectName = subject.querySelector('name').textContent;
+                                const marks = subject.querySelector('marks').textContent;
+                                return `<li>Subject: ${subjectName}, Marks: ${marks}</li>`;
+                            }).join('')
+                        }</ul>`;
+                        detailsDiv.innerHTML = detailsHTML;
+                    }
+                });
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', loadStudents);
+        document.getElementById('studentSelect').addEventListener('change', getStudentDetails);
+    </script>
+</body>
+</html>

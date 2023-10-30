@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amrita Cyber Nation Registration</title>
+  <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script>
+
+</head>
+<body>
+  <h2>Amrita Cyber Nation Registration</h2>
+  <form id="registrationForm" onsubmit="submitForm()" autocomplete="off">
+    <label for="urname">Name:</label>
+    <input type="text" name="urname" id="urname" autocomplete="off" required>
+    <br><br>
+
+    <label for="mail">Email ID:</label>
+    <input type="mail" name="mail" id="mail" autocomplete="off" required>
+    <br><br>
+
+    <label for="Pass">Password:</label>
+    <input type="Pass" name="Pass" id="Pass" autocomplete="off" required>
+    <br><br>
+
+    <!-- Honeypot Field -->
+    <div style="display:none;">
+      <input type="text" name="honeypot" id="honeypot">
+    </div>
+    <div class="g-recaptcha" data-sitekey="6LcA5HQnAAAAAHqlsu_YtOmC93c33Z-RZZE8eT8Q" required></div><br><br>
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    function submitForm() {
+      if (document.getElementById("honeypot").value !== "") {
+        alert("This submission appears to be from a bot. Please try again.");
+        return false;
+      }
+
+      alert("Form submitted successfully!");
+      document.getElementById("registrationForm").reset();
+    }
+  </script>
+</body>
+</html>

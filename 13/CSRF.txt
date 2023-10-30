@@ -1,0 +1,2 @@
+Can change pass in url
+If referer checked, then update it in headers

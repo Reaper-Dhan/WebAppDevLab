@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student>
+        <name>John Doe</name>
+        <subjects>
+            <subject>
+                <name>Math</name>
+                <marks>90</marks>
+            </subject>
+            <subject>
+                <name>Science</name>
+                <marks>85</marks>
+            </subject>
+            <subject>
+                <name>English</name>
+                <marks>95</marks>
+            </subject>
+        </subjects>
+    </student>
+    <student>
+        <name>Jane Smith</name>
+        <subjects>
+            <subject>
+                <name>Math</name>
+                <marks>88</marks>
+            </subject>
+            <subject>
+                <name>Science</name>
+                <marks>92</marks>
+            </subject>
+            <subject>
+                <name>English</name>
+                <marks>89</marks>
+            </subject>
+        </subjects>
+    </student>
+    <student>
+        <name>Michael Johnson</name>
+        <subjects>
+            <subject>
+                <name>Math</name>
+                <marks>75</marks>
+            </subject>
+            <subject>
+                <name>Science</name>
+                <marks>80</marks>
+            </subject>
+            <subject>
+                <name>English</name>
+                <marks>85</marks>
+            </subject>
+        </subjects>
+    </student>
+    <student>
+        <name>Susan Davis</name>
+        <subjects>
+            <subject>
+                <name>Math</name>
+                <marks>92</marks>
+            </subject>
+            <subject>
+                <name>Science</name>
+                <marks>78</marks>
+            </subject>
+            <subject>
+                <name>English</name>
+                <marks>91</marks>
+            </subject>
+        </subjects>
+    </student>
+    <student>
+        <name>David Lee</name>
+        <subjects>
+            <subject>
+                <name>Math</name>
+                <marks>85</marks>
+            </subject>
+            <subject>
+                <name>Science</name>
+                <marks>90</marks>
+            </subject>
+            <subject>
+                <name>English</name>
+                <marks>88</marks>
+            </subject>
+        </subjects>
+    </student>
+</students>

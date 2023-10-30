@@ -1,0 +1,11 @@
+1) Reflected
+-> <script>alert(1)</script>
+2) Stored
+-> <script>alert(document.domain)</script>
+3) DOM
+-> same as Reflected but in url
+
+Other possibilities are by using img tag or body tag
+
+<img src=x onerror=alert(1)>
+<body onload=alert(1)>
